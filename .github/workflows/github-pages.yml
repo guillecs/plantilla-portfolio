@@ -20,7 +20,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2' # Asegúrate de que esta versión coincida con los requisitos de tus gemas
-          bundler-cache: true # Instala las gemas definidas en Gemfile.lock
+          bundler-cache: true # Esto instalará automáticamente tus gemas
 
       # Construye el sitio Jekyll
       - name: Build Jekyll Site
@@ -28,7 +28,8 @@ jobs:
 
       # Despliega el sitio a GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3 # Nueva acción de despliegue
+        uses: peaceiris/actions-gh-pages@v3 # Acción de despliegue
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          
+          publish_dir: ./_site # <--- ¡ESTO FALTABA! Le dice dónde está el sitio construido
+          publish_branch: gh-pages # <--- ¡ESTO FALTABA! Le dice a qué rama subir el sitio
