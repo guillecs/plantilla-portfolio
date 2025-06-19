@@ -3,22 +3,29 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master # O 'main' si tu rama principal en GitHub es 'main'
+      - main # ¡IMPORTANTE! O 'main' si tu rama principal en GitHub es 'main'
 
 jobs:
   github-pages:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2 # Paso para obtener tu código
+    permissions:
+      contents: write # Permiso necesario para que la acción pueda escribir en la rama gh-pages
 
-      # ¡AÑADE ESTE BLOQUE AQUÍ para configurar Ruby!
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      # Configura Ruby para que Bundler y Jekyll puedan ejecutarse correctamente
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # Especifica la versión de Ruby requerida por Bundler (o superior, ej. '3.2', '3.3')
-          bundler-cache: true # Esto instalará automáticamente tus gemas
+          ruby-version: '3.2' # Asegúrate de que esta versión coincida con los requisitos de tus gemas
+          bundler-cache: true # Instala las gemas definidas en Gemfile.lock
 
-      - name: Build Jekyll site # Este es tu paso existente para construir Jekyll
-        uses: helaili/jekyll-action@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # Construye el sitio Jekyll
+      - name: Build Jekyll Site
+        run: bundle exec jekyll build # Ejecutamos el comando de Jekyll directamente
+
+      # Despliega el sitio a GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3 # Nueva acción de despliegue
