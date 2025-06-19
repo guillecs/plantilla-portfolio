@@ -5,7 +5,7 @@ email: tu-email@ejemplo.com # Tu email, actualizado
 description: >- # Descripción actualizada
   Un portfolio digital que muestra mi trabajo en diseño, comunicación,
   proyectos creativos y reflexiones.
-baseurl: "/plantilla-portfolio" # La subcarpeta donde se desplegará tu sitio en GitHub Pages
+#baseurl: "/plantilla-portfolio" # La subcarpeta donde se desplegará tu sitio en GitHub Pages
 url: "https://guillecs.github.io" # La URL base de tu sitio. ¡Asegúrate de que esta sea tu URL de GitHub Pages!
 author:
   name: Guillermo # Tu nombre
