@@ -15,7 +15,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1' # Especifica la versión de Ruby requerida por Bundler (o superior, ej. '3.2', '3.3')
+          ruby-version: '3.2' # Especifica la versión de Ruby requerida por Bundler (o superior, ej. '3.2', '3.3')
           bundler-cache: true # Esto instalará automáticamente tus gemas
 
       - name: Build Jekyll site # Este es tu paso existente para construir Jekyll
