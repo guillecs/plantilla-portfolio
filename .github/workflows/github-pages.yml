@@ -3,13 +3,22 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master # O 'main' si tu rama principal en GitHub es 'main'
 
 jobs:
   github-pages:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses:  helaili/jekyll-action@v2
+      - uses: actions/checkout@v2 # Paso para obtener tu código
+
+      # ¡AÑADE ESTE BLOQUE AQUÍ para configurar Ruby!
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1' # Especifica la versión de Ruby requerida por Bundler (o superior, ej. '3.2', '3.3')
+          bundler-cache: true # Esto instalará automáticamente tus gemas
+
+      - name: Build Jekyll site # Este es tu paso existente para construir Jekyll
+        uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
