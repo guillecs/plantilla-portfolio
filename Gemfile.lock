@@ -85,7 +85,9 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 4.2)
+  jekyll-sass-converter
   jekyll-timeago (~> 0.13.1)
+  sass-embedded
 
 BUNDLED WITH
    2.6.9
