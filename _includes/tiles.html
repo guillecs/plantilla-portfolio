@@ -1,0 +1,12 @@
+<!-- One -->
+<section id="one" class="tiles">
+    {% for tile in site.tiles %}
+    <article style="background-image: url('{{ site.baseurl }}/{{ tile.image }}');">
+        <header class="major">
+            <h3><a href="{{ tile.url | relative_url }}" class="link">{{ tile.title }}</a></h3>
+            <p>{{ tile.subtitle }}</p>
+        </header>
+        <a href="{{ tile.url | relative_url }}" class="link primary"></a>
+    </article>
+    {% endfor %}
+</section>

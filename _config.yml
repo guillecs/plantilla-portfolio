@@ -1,55 +1,69 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# site settings
+title: Mi Portfolio Creativo # Título actualizado
+subtitle: Guillermo - Creativo Digital # Subtítulo más personal
+email: tu-email@ejemplo.com # Tu email, actualizado
+description: >- # Descripción actualizada
+  Un portfolio digital que muestra mi trabajo en diseño, comunicación,
+  proyectos creativos y reflexiones.
+baseurl: "/plantilla-portfolio" # La subcarpeta donde se desplegará tu sitio en GitHub Pages
+url: "https://guillecs.github.io" # La URL base de tu sitio. ¡Asegúrate de que esta sea tu URL de GitHub Pages!
+author:
+  name: Guillermo # Tu nombre
+  # Puedes añadir más detalles de autor si quieres
+  # street_address: 1234 Somewhere Road # Puedes eliminar o personalizar estos detalles
+  # city: Nashville
+  # state: TN
+  # zip_code: 55555
+  # country: United States of America
+  # phone: (716) 555-5555
 
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/plantilla-portfolio" # Asegúrate de que coincida EXACTAMENTE con el nombre de tu repositorio" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+# homepage tiles
+tiles-source: pages # Los tiles de la página principal (los 'cuadritos') buscarán páginas
+tiles-count: 6 # Ahora queremos 4 cuadritos en la página principal
 
-# Build settings
-theme: minima
-plugins:
-  - jekyll-feed
+# Definición de cada tile para tu portfolio
+tiles:
+  - title: Sobre Mí # ¡Este es el nuevo tile que va primero!
+    subtitle: Mi Experiencia y Pasiones
+    image: assets/images/pic07.jpg # La imagen que uses para tu página Sobre Mí
+    url: /sobre-mi/ # La URL a la que enlazará este tile
+  - title: Proyectos
+    subtitle: Mis trabajos integrales y estudios de caso
+    image: assets/images/pic01.jpg
+    url: /proyectos/
+  - title: Posts # Cambié "Artículos" a "Posts" para ser consistente
+    subtitle: Mis escritos, análisis y reflexiones
+    image: assets/images/pic02.jpg
+    url: /posts/ # Asegúrate de que esta URL apunta a tu nueva página de posts
+  - title: Mi CV
+    subtitle: Mi experiencia profesional y habilidades
+    image: assets/images/pic04.jpg
+    url: /cv/
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Colecciones personalizadas
+collections:
+  projects: # Este será el nombre de tu colección (puedes llamarla como quieras, 'projects' es común)
+    output: true # Esto le dice a Jekyll que genere una página HTML para cada proyecto individual
+    permalink: /proyectos/:path/ # Define la estructura de URL para cada proyecto (ej: /proyectos/mi-primer-proyecto/)
+
+# social settings (key must match name of font awesome icon)
+# see https://fontawesome.com/icons?d=gallery&p=2&s=brands
+# Icons are not shown if value is empty
+# You need to restart jekyll for changes to have an effect
+socials:
+  GitHub: https://github.com/guillecs # Enlace a tu GitHub
+  # Instagram: # Puedes añadir tu Instagram aquí
+  # LinkedIn: # Puedes añadir tu LinkedIn aquí
+  # BlueSky: # Puedes añadir tu BlueSky aquí
+
+# build settings
+markdown: kramdown # Procesador de Markdown
+
+sass:
+  style: compressed # Comprime el CSS para optimizar el tamaño
+
+exclude:
+  - "*.gemspec"
+  - LICENSE.md
+  - CONTRIBUTING.md
+  - README.md
