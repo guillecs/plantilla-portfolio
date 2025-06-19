@@ -23,7 +23,7 @@ nav-menu: true # Mantener el menú de navegación si el layout landing lo requie
 <section id="two" class="spotlights">
     <section>
         <a href="{{ site.baseurl }}/proyectos/" class="image">
-            <img src="{% link assets/images/pic08.jpg %}" alt="Imagen representativa de proyectos" data-position="center center" />
+            <img src="{{ site.baseurl }}/assets/images/pic08.jpg" alt="Imagen representativa de proyectos" data-position="center center" />
         </a>
         <div class="content">
             <div class="inner">
@@ -39,7 +39,7 @@ nav-menu: true # Mantener el menú de navegación si el layout landing lo requie
     </section>
     <section>
         <a href="{{ site.baseurl }}/posts/" class="image">
-            <img src="{% link assets/images/pic09.jpg %}" alt="Imagen representativa de posts/artículos" data-position="top center" />
+            <img src="{{ site.baseurl }}/assets/images/pic09.jpg" alt="Imagen representativa de posts/artículos" data-position="top center" />
         </a>
         <div class="content">
             <div class="inner">
@@ -55,7 +55,7 @@ nav-menu: true # Mantener el menú de navegación si el layout landing lo requie
     </section>
     <section>
         <a href="{{ site.baseurl }}/cv/" class="image">
-            <img src="{% link assets/images/pic10.jpg %}" alt="Imagen representativa de CV" data-position="25% 25%" />
+            <img src="{{ site.baseurl }}/assets/images/pic10.jpg" alt="Imagen representativa de CV" data-position="25% 25%" />
         </a>
         <div class="content">
             <div class="inner">
