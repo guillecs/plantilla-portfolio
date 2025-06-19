@@ -29,3 +29,6 @@ jobs:
       # Despliega el sitio a GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3 # Nueva acción de despliegue
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
